@@ -55,6 +55,27 @@ Open:
 - API docs: http://127.0.0.1:8000/docs
 - Health: http://127.0.0.1:8000/health
 
+## Quick start (frontend)
+
+In a second terminal, from the repository root:
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Open http://localhost:5173. Start the backend first at http://127.0.0.1:8000.
+
+Optional frontend environment variable:
+
+```bash
+# frontend/.env
+VITE_API_BASE_URL=http://127.0.0.1:8000
+```
+
+The dashboard currently supports image uploads, browser webcam capture, and client-side video sampling (up to 20 frames per video). Video frames are sent individually to the existing frame-detection endpoint; the backend does not store the source video.
+
 ## API
 
 ### `GET /health`
@@ -93,7 +114,7 @@ docker run --rm -p 8000:8000 facesight-ai
 - [x] Repository and backend foundation
 - [x] Pretrained YuNet image/frame detection API
 - [ ] Recorded video processing endpoint
-- [ ] React dashboard and webcam controls
+- [x] React dashboard, image upload, webcam controls, and video frame sampling
 - [ ] Detection analytics and performance metrics
 - [ ] Automated tests and GitHub Actions
 - [ ] Production deployment
