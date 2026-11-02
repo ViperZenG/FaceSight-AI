@@ -142,7 +142,7 @@ function App() {
     const collected = [];
     try {
       for (let i = 0; i < samples; i++) {
-        video.currentTime = Math.min(i * (duration / samples), Math.max(0, duration - 0.05));
+        video.currentTime = Math.min((i + 1) * (duration / samples), Math.max(0, duration - 0.05));
         await new Promise((resolve) => { video.onseeked = resolve; });
         canvas.width = video.videoWidth; canvas.height = video.videoHeight;
         ctx.drawImage(video, 0, 0);
