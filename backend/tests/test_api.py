@@ -27,6 +27,7 @@ def client(monkeypatch):
         }
 
     monkeypatch.setattr(main.detector, "load", lambda: None)
+    monkeypatch.setattr(main.detector, "_detector", object())
     monkeypatch.setattr(main.detector, "detect", fake_detect)
     with TestClient(main.app) as test_client:
         yield test_client
